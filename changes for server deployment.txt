@@ -1,0 +1,22 @@
+changes
+
+1) config.yml 
+ original - url: "http://localhost:8000"
+  change url: "http://duckling:8000"
+
+2) credentials 
+ 
+change -  webhook_url: "https://spotter.sundaybots.com/webhooks/telegram/webhook"  
+
+original url was ngrok
+
+3) endpoints
+ 
+original -
+# action_endpoint:
+#  url: "http://localhost:5055/webhook"
+
+change -
+
+action_endpoint:
+  url: http://app:5055/webhook

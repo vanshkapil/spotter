@@ -1,0 +1,222 @@
+version: "2.0"
+
+stories:
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: greetings
+  steps:
+  - intent: greet
+  - action: utter_greet  
+
+- story: greetings
+  steps:
+  - intent: greet
+  - action: utter_greet  
+
+
+- story: showskills
+  steps:
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+- story: showskills
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+
+
+
+
+- story: showskills
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+- story: showskills
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+
+- story: greet and add skill form
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: add_skill
+  - action: add_skill_form
+  - active_loop: add_skill_form
+  - slot_was_set:
+    - skill_name: jogs
+    - skill_qty: 10
+  - active_loop: null
+  - action: action_add_skill
+
+
+- story: interactive
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+- story: interactive
+  steps:  
+  - intent: create_skill
+  - action: action_slot_reset
+  - action: create_skill_form
+  - active_loop: "create_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "pushups"  
+  - action: create_skill_form
+  - intent: inform
+    entities: 
+    - skill_unit: "count"  
+  - action: create_skill_form
+  - intent: inform
+    entities: 
+    - skill_tag: "None"  
+  - active_loop: null
+  - action: action_check_skill
+
+- story: interactive
+  steps:  
+  - intent: add_skill
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "pushups"  
+  - action: add_skill_form
+  - intent: inform
+    entities: 
+    - skill_qty: 10
+  - active_loop: null
+  - action: action_add_skill
+
+- story: interactive
+  steps:  
+  - intent: add_skill
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "Donkey Kong"  
+  - action: add_skill_form
+  - intent: inform
+    entities: 
+    - skill_qty: 10
+  - active_loop: null
+  - action: action_add_skill
+
+- story: interactive
+  steps:  
+  - intent: add_skill
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "Donkey Kong dance"  
+  - action: add_skill_form
+  - intent: inform
+    entities: 
+    - skill_qty: 10
+  - active_loop: null
+  - action: action_add_skill
+
+
+- story: interactive
+  steps:
+  - intent: add_skill
+    entities: 
+    - skill_name: "pushups"  
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - intent: inform
+    entities: 
+    - skill_qty: 10
+  - active_loop: null
+  - action: action_add_skill
+
+- story: interactive
+  steps:
+  - intent: add_skill
+    entities: 
+    - skill_name: "pushups"  
+    - skill_qty: 10
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - active_loop: null
+  - action: action_add_skill
+
+
+- story: interactive
+  steps:
+  - intent: add_skill
+    entities: 
+    - skill_qty: 10
+  - action: add_skill_form
+  - active_loop: "add_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "Donkey Kong dance"  
+  - active_loop: null
+  - action: action_add_skill
+  
+
+- story: interactive
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: show_all_skills
+  - action: action_show_all_skills
+  - intent: create_skill
+  - action: action_slot_reset
+  - action: create_skill_form
+  - active_loop: "create_skill_form"
+  - intent: inform
+    entities: 
+    - skill_name: "jumping jacks"  
+  - action: create_skill_form
+  - intent: inform
+    entities: 
+    - skill_unit: "count"  
+  - action: create_skill_form
+  - intent: inform
+    entities: 
+    - skill_tag: "None"  
+  - active_loop: null
+  - action: action_check_skill
+
+
+- story: interactive
+  steps:
+  - intent: remove_skill
+    entities: 
+    - skill_name: "pushups"  
+  - action: remove_skill_form
+  - active_loop: "remove_skill_form"
+  - intent: affirm
+  - active_loop: null
+  - action: action_remove_skill
+
+- story: interactive
+  steps:
+  - intent: remove_skill
+    entities: 
+    - skill_name: "pushups"  
+  - action: remove_skill_form
+  - active_loop: "remove_skill_form"
+  - intent: deny
+  - active_loop: null
+  - action: action_remove_skill  

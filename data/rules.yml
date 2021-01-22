@@ -1,0 +1,137 @@
+version: "2.0"
+
+rules:
+
+
+- rule: activate create_skill_form when user wants to create a create_skill_form
+  steps:
+  - intent: create_skill 
+  - action: action_slot_reset
+  - action: create_skill_form
+  - active_loop: create_skill_form
+  
+- rule: Submit create_skill_form
+  condition:
+  # Condition that form is active.
+  - active_loop: create_skill_form
+  steps:
+  # Form is deactivated
+  - action: create_skill_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # The action we want to run when the form is submitted.
+  - action: action_check_skill
+
+
+- rule: greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  
+- rule: show help
+  steps:
+  - intent: show_help
+  - action: utter_show_help  
+
+
+- rule: activate action_add_skill_form when user wants to add a skill 
+  steps:
+  - intent: add_skill
+  - action: add_skill_form
+  - active_loop: add_skill_form
+  
+- rule: Submit action_add_skill_form
+  condition:
+  # Condition that form is active.
+  - active_loop: add_skill_form
+  steps:
+  # Form is deactivated
+  - action: add_skill_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # The action we want to run when the form is submitted.
+  - action: action_add_skill
+
+- rule: activate action_show_all_skills when user wants to see skills 
+  steps:
+  - intent: show_all_skills
+  - action: action_show_all_skills
+
+
+- rule: activate action_remove_skill_form when user wants to remove a skill 
+  steps:
+  - intent: remove_skill
+  - action: remove_skill_form
+  - active_loop: remove_skill_form
+  
+- rule: Submit action_remove_skill_form
+  condition:
+  # Condition that form is active.
+  - active_loop: remove_skill_form
+  steps:
+  # Form is deactivated
+  - action: remove_skill_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # The action we want to run when the form is submitted.
+  - action: action_remove_skill  
+
+
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: two_stage_fallback
+  
+
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+
+- rule: activate show_skill_count_form when user wants to see skill performance
+  steps:
+  - intent: show_skill_count
+  - action: show_skill_count_form
+  - active_loop: show_skill_count_form
+  
+- rule: Submit show_skill_count
+  condition:
+  # Condition that form is active.
+  - active_loop: show_skill_count_form
+  steps:
+  # Form is deactivated
+  - action: show_skill_count_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # The action we want to run when the form is submitted.
+  - action: action_set_grain
+
+
+
+
+
+- rule: activate show_all_skill_count_form when user wants to see skill performance
+  steps:
+  - intent: show_performance
+  - action: show_all_skill_count_form
+  - active_loop: show_all_skill_count_form
+  
+- rule: Submit show_all_skill_count
+  condition:
+  # Condition that form is active.
+  - active_loop: show_all_skill_count_form
+  steps:
+  # Form is deactivated
+  - action: show_all_skill_count_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # The action we want to run when the form is submitted.
+  - action: action_set_grain

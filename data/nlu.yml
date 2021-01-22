@@ -1,0 +1,249 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - ya
+    - yup
+    - haan
+    - sahi
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - na
+    - naa
+    - nope
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - what are you?
+
+- intent: inform
+  examples: |
+    - None
+    - [pushups](skill_name)
+    - [plank](skill_name)
+    - [squats](skill_name)
+    - [count](skill_unit)
+    - [time](skill_unit)
+    - [distance](skill_unit)
+    - [jumps](skill_name)
+    - [Jumping Jacks](skill_name)
+    - [Showboating](skill_name)
+    - [meditation](skill_name)
+    - [Zonga](skill_name)
+    - [Fubi Shubi](skill_name)
+    - [Lunges](skill_name)
+    - [backflips](skill_name)
+    - [dockey kong dance](skill_name)
+    - [morning workout](skill_name)
+    - [morning run](skill_name)
+    - [writing journal](skill_name)
+    - [drink water](skill_name)
+    - [No Sugar](skill_name)
+
+
+- intent: filler
+  examples: |
+    - ok
+    - hmm
+    - acha
+    - good
+    - interesting
+    - wow
+    - Hehe
+    - Ok
+    - nothing
+
+- intent: create_skill
+  examples: |
+    - create a new skill for me
+    - I want to create a new skill
+    - create a skill template
+    - create new skill
+    - create another skill for me
+    - i want to make a new skill
+    - list a new skill
+    - create a new skill [squats](skill_name)
+    - create a skills [running](skill_name)
+    - create a new skills
+
+- intent: add_skill
+  examples: |
+    - add [15](skill_qty) [pushups](skill_name)
+    - add [1](skill_qty) minute of [plank](skill_name)
+    - add [1](skill_qty) min [plank](skill_name)
+    - add [15](skill_qty) [pushup]{"entity": "skill_name", "value": "pushups"}
+    - I want to add [30](skill_qty) [lunges](skill_name)
+    - I want to add [30](skill_qty) [spider pushups](skill_name)
+    - ADD [15](skill_qty) [sumo squats](skill_name)
+    - add [0](skill_qty) [meditations](skill_name)
+    - Add [3](skill_qty) km of [run](skill_name)
+    - Add [15](skill_qty) [zumba](skill_name)
+    - add [5](skill_qty) mins [hot yoga](skill_name)
+    - add [10](skill_qty) [jogs](skill_name)
+
+- intent: remove_skill
+  examples: |
+    - I want to remove [pushups](skill_name) skill
+    - remove [pushups](skill_name) as a skill
+    - delete [pushups](skill_name) skill
+    - Remove skill [coding](skill_name)
+    - remove [zumba](skill_name) also
+    - might as well remove [zumba](skill_name)
+    - delete [jogs](skill_name)
+    - remove [kathak dance](skill_name)
+    - remove skill [hot yoga](skill_name)
+    - remove [donkey kong salsa](skill_name) skill 
+    - delete skill [jogs](skill_name)
+
+- intent: show_all_skills
+  examples: |
+    - Show me all the skills I have
+    - show my skills
+    - display list of skills I have created
+    - show me my skills
+    - what skills do I have
+
+- intent: show_performance
+  examples: |
+    - show my performance for all skills this month
+    - how was my performance this week
+    - show my performance report for last month
+
+- intent: show_help
+  examples: |
+    - show help
+    - Help me
+    - how can you help me 
+    - help
+
+- intent: show_skill_count
+  examples: |
+    - how many [pushups](skill_name) did I do?
+    - whats my [pushup]{"entity":"skill_name","value":"pushups"} count for this month
+    - whats my [pushup]{"entity":"skill_name","value":"pushups"} count for last month
+    - whats my [pushup]{"entity":"skill_name","value":"pushups"} count for this week
+    - how many [pushups](skill_name) did I do yesterday?
+    
+- synonym: pushups
+  examples: |
+    - pushup
+
+- lookup: skill_name
+  examples: |
+    - data/test/lookup_tables/skills.txt
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- synonym: Yes
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - ya
+    - yup
+
+- synonym: No
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - na
+    - naa
+    - nope
