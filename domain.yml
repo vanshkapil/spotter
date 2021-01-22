@@ -1,0 +1,103 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- show_all_skills
+- inform
+- greet
+- create_skill
+- add_skill
+- deny
+- goodbye
+- affirm
+- bot_challenge
+- remove_skill
+- show_performance
+- filler
+- show_skill_count
+- show_help
+- out_of_scope
+- nlu_fallback
+- mood_great
+- mood_unhappy
+entities:
+- skill_name
+- skill_qty
+- skill_tag
+- skill_unit
+- time
+slots:
+  requested_slot:
+    type: unfeaturized
+  skill_name:
+    type: text
+  skill_qty:
+    type: text
+  skill_remove_conf:
+    type: text
+  skill_tag:
+    type: text
+  skill_unit:
+    type: text
+  time:
+    type: text
+responses:
+  utter_show_help:
+  - text: "No problem, here is quick guide of what all you can ask me. \n 1. Create\
+      \ new skill \n 2. Add skill reps \n 3. Remove a skill \n 4. Show my skills \n\
+      \ 5. Ask for performance report \n Link to [Sundaybots](https://www.sundaybots.com/) "
+  utter_ask_skill_name:
+  - text: Sure, whats the name of skill?
+  utter_ask_skill_tag:
+  - text: Name the tag, if any. Otherwise type None
+  utter_ask_skill_unit:
+  - text: whats the measuring dimension count, time or distance
+  utter_goodbye:
+  - text: Bye
+  
+  utter_greet:
+  - text: "Hey! How are you?"
+    
+
+  utter_iamabot:
+  - text: I am a Jarvis. Here to assist you achieve your goals.
+  utter_ask_skill_remove_conf:
+  - text: okay, do you confirm to remove {skill_name} as a skill and the corresponding
+      data.( Yes/No )
+  utter_ask_skill_qty:
+  - text: How many should I add?
+  utter_rejecting_skill_removal:
+  - text: Okay, not removing {skill_name}
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+  utter_checking_performance:
+  - text: Please wait let me check what I got.
+  utter_ask_time:
+  - text: What time frame should I look up ?
+actions:
+- action_add_skill
+- action_check_skill
+- action_default_ask_affirmation
+- action_remove_skill
+- action_show_all_skills
+- action_show_performance_report
+- action_slot_reset
+- utter_ask_skill_name
+- utter_ask_skill_tag
+- utter_ask_skill_unit
+- utter_goodbye
+- utter_greet
+- utter_iamabot
+- utter_ask_skill_remove_conf
+- utter_checking_performance
+- action_set_grain
+forms:
+  create_skill_form: {}
+  add_skill_form: {}
+  remove_skill_form: {}
+  show_skill_count_form: {}
+  show_all_skill_count_form: {}
